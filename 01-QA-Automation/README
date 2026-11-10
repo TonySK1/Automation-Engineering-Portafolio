@@ -1,0 +1,15 @@
+Estructura:
+
+automation-engineering-portfolio/
+└── 01-qa-automation/
+    └── playwright-python-framework/
+        ├── pages/
+        ├── tests/
+        ├── utils/
+        │   ├── __init__.py
+        │   └── config.py      ← AHORA
+        ├── .env.example
+        ├── .env
+        ├── conftest.py
+        ├── pytest.ini
+        └── requirements.txt

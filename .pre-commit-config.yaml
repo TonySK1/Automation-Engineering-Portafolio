@@ -1,0 +1,32 @@
+repos:
+  # 1. Chequeos generales de sintaxis y limpieza de archivos
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace        # Elimina espacios en blanco innecesarios al final de las líneas
+      - id: end-of-file-fixer          # Asegura que los archivos terminen con una línea en blanco
+      - id: check-yaml                 # Valida que la sintaxis de los archivos .yaml sea correcta
+      - id: check-json                 # Valida la sintaxis de archivos .json
+      - id: check-added-large-files    # Evita subir por accidente archivos pesados (más de 500 KB)
+      - id: check-merge-conflict       # Detecta si quedaron marcas de conflicto de git (<<<<<<<)
+
+  # 2. Ordenamiento automático de imports en Python
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+
+  # 3. Formateador automático de estilo de código PEP 8
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      - id: black
+        language_version: python3
+
+  # 4. Linter para detectar errores de sintaxis, variables no usadas y estilo
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.0.0
+    hooks:
+      - id: flake8
+        args: ["--max-line-length=88", "--extend-ignore=E203"]
